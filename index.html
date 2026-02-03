@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shamsundar Chapakanade | Java Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Shamsundar Chapakanade, a Detail-oriented Java Developer specializing in Spring Boot and Microservices."
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                blue: "#0E5484" /* Matches cvblue */,
+                dark: "#0F4539" /* Matches darkcolor */,
+                accent: "#368abb" /* Lighter version for hover */,
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+
+      .blob {
+        position: absolute;
+        filter: blur(40px);
+        z-index: -1;
+        opacity: 0.4;
+        animation: move 10s infinite alternate;
+      }
+      @keyframes move {
+        from {
+          transform: translate(0, 0) scale(1);
+        }
+        to {
+          transform: translate(20px, -20px) scale(1.1);
+        }
+      }
+
+      /* Navbar Link Hover Animation */
+      .nav-item {
+        position: relative;
+      }
+      .nav-item::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #0e5484; /* brand-blue */
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease-in-out;
+      }
+      .nav-item:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-slate-800 antialiased relative overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-lg border-b border-white/20"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center group cursor-pointer">
+            <a
+              href="#"
+              class="text-3xl font-extrabold tracking-tighter text-slate-800 group-hover:text-brand-blue transition-colors duration-300"
+            >
+              Shamsundar Chapakanade<span
+                class="text-brand-blue text-4xl leading-none inline-block group-hover:-translate-y-1 transition-transform duration-300"
+              ></span>
+            </a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#about"
+              class="nav-item text-slate-600 hover:text-brand-blue font-medium text-sm uppercase tracking-wide transition-colors py-2"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="nav-item text-slate-600 hover:text-brand-blue font-medium text-sm uppercase tracking-wide transition-colors py-2"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="nav-item text-slate-600 hover:text-brand-blue font-medium text-sm uppercase tracking-wide transition-colors py-2"
+              >Projects</a
+            >
+            <a
+              href="#education"
+              class="nav-item text-slate-600 hover:text-brand-blue font-medium text-sm uppercase tracking-wide transition-colors py-2"
+              >Education</a
+            >
+
+            <a
+              href="#contact"
+              class="ml-4 px-6 py-2.5 rounded-full bg-gradient-to-r from-brand-blue to-cyan-600 text-white font-medium text-sm shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
+            >
+              <span>Contact Me</span>
+              <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-slate-600 hover:text-brand-blue focus:outline-none transition-transform active:scale-95"
+            >
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100 absolute w-full shadow-xl"
+      >
+        <div class="px-4 pt-2 pb-6 space-y-2">
+          <a
+            href="#about"
+            class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-600 hover:text-brand-blue hover:bg-blue-50 transition-all"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-600 hover:text-brand-blue hover:bg-blue-50 transition-all"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-600 hover:text-brand-blue hover:bg-blue-50 transition-all"
+            >Projects</a
+          >
+          <a
+            href="#education"
+            class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-600 hover:text-brand-blue hover:bg-blue-50 transition-all"
+            >Education</a
+          >
+          <a
+            href="#contact"
+            class="mobile-link block px-4 py-3 mt-4 rounded-xl text-center font-bold text-white bg-brand-blue shadow-lg shadow-blue-500/20"
+            >Contact Me</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <!-- Background Blobs -->
+      <div
+        class="blob bg-blue-100 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"
+      ></div>
+      <div
+        class="blob bg-green-100 w-80 h-80 rounded-full bottom-0 right-0 translate-x-1/3 translate-y-1/3"
+      ></div>
+
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center"
+      >
+        <div data-aos="fade-down" data-aos-duration="1000">
+          <span
+            class="inline-block py-1 px-3 rounded-full bg-blue-50 text-brand-blue text-sm font-semibold mb-4 border border-blue-100"
+            >Java Developer</span
+          >
+        </div>
+        <h1
+          class="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Hi, I'm
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-dark"
+            >Shamsundar.</span
+          >
+        </h1>
+        <p
+          class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 mb-10 leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          A detail-oriented developer building robust backend systems with
+          <strong class="text-slate-800">Spring Boot</strong> and
+          <strong class="text-slate-800">Microservices</strong>. Passionate
+          about writing clean, efficient code.
+        </p>
+        <div
+          class="flex justify-center gap-4"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <a
+            href="#contact"
+            class="px-8 py-3 rounded-full bg-brand-blue text-white font-semibold hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Get in Touch
+          </a>
+          <a
+            href="#projects"
+            class="px-8 py-3 rounded-full bg-white text-slate-700 border border-slate-200 font-semibold hover:border-brand-blue hover:text-brand-blue transition-all shadow-sm hover:shadow-md"
+          >
+            View Projects
+          </a>
+        </div>
+
+        <div
+          class="mt-12 flex justify-center space-x-6 text-slate-400"
+          data-aos="fade-in"
+          data-aos-delay="500"
+        >
+          <a
+            href="https://github.com/Shamsundar04"
+            target="_blank"
+            class="hover:text-brand-blue transition-colors text-3xl"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/shamsundar-chapakanade-727737354/"
+            target="_blank"
+            class="hover:text-brand-blue transition-colors text-3xl"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="mailto:chapakanadesham@gmail.com"
+            class="hover:text-brand-blue transition-colors text-3xl"
+            ><i class="fas fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Professional Summary -->
+    <section id="about" class="py-20 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-slate-900" data-aos="fade-up">
+            Professional Summary
+          </h2>
+          <div class="w-16 h-1 bg-brand-blue mx-auto mt-4 rounded-full"></div>
+        </div>
+        <div
+          class="bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-slate-100"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <p class="text-lg text-slate-600 leading-relaxed mb-6">
+            <i
+              class="fas fa-quote-left text-brand-blue opacity-20 text-3xl mr-2"
+            ></i>
+            I am a detail-oriented <strong>Java Developer</strong> with
+            experience in <strong>Spring Boot</strong>,
+            <strong>RESTful APIs</strong>, and backend integration using
+            <strong>JPA</strong>.
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed mb-6">
+            My proficiency extends to Core Java, OOPs, Collections Framework,
+            Multi-Threading, and Stream API, alongside solid database design
+            skills in MySQL and Oracle.
+          </p>
+          <p class="text-lg text-slate-600 leading-relaxed">
+            I am skilled in JUnit testing and GitHub version control, with a
+            strong passion for writing clean, maintainable, and efficient code.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900" data-aos="fade-up">
+            Technical Expertise
+          </h2>
+          <p
+            class="mt-4 text-slate-500"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            My technical toolkit and proficiencies
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Skill Card 1 -->
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all group"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div
+              class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-brand-blue text-2xl mb-4 group-hover:scale-110 transition-transform"
+            >
+              <i class="fab fa-java"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">Languages</h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Core Java</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Java 8+</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >SQL</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >HTML5/CSS3</span
+              >
+            </div>
+          </div>
+
+          <!-- Skill Card 2 -->
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all group"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center text-green-600 text-2xl mb-4 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">
+              Spring Ecosystem
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Spring Boot</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Spring Security</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Spring Cloud</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Data JPA</span
+              >
+            </div>
+          </div>
+
+          <!-- Skill Card 3 -->
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all group"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 text-2xl mb-4 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">Microservices</h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >API Gateway</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Service Registry</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Redis Cache</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Config Server</span
+              >
+            </div>
+          </div>
+
+          <!-- Skill Card 4 -->
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all group"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 text-2xl mb-4 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">Databases</h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >MySQL</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Oracle</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Database Design</span
+              >
+            </div>
+          </div>
+
+          <!-- Skill Card 5 -->
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all group"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div
+              class="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center text-red-600 text-2xl mb-4 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">Tools</h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Git/GitHub</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Docker</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Maven</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Postman</span
+              >
+            </div>
+          </div>
+
+          <!-- Skill Card 6 -->
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition-all group"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div
+              class="w-12 h-12 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600 text-2xl mb-4 group-hover:scale-110 transition-transform"
+            >
+              <i class="fas fa-bug"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">
+              Testing & Core
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >JUnit</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Mockito</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >OOPs</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-md"
+                >Agile</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right">
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">
+              Technical Experience
+            </h2>
+            <p class="text-slate-600 mb-8">
+              My practical experience in building backend solutions focusing on
+              architecture, security, and efficiency.
+            </p>
+            <div class="space-y-6">
+              <div class="flex">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-blue text-white"
+                  >
+                    <i class="fas fa-server"></i>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-slate-800">
+                    API Development
+                  </h4>
+                  <p class="text-slate-600 mt-1">
+                    Built and maintained RESTful services using Spring Boot and
+                    MVC architecture.
+                  </p>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-blue text-white"
+                  >
+                    <i class="fas fa-database"></i>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-slate-800">
+                    Database Integration
+                  </h4>
+                  <p class="text-slate-600 mt-1">
+                    Implemented CRUD operations using JPA for efficient
+                    persistence.
+                  </p>
+                </div>
+              </div>
+              <div class="flex">
+                <div class="flex-shrink-0 mr-4">
+                  <div
+                    class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-blue text-white"
+                  >
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-slate-800">
+                    Quality Assurance
+                  </h4>
+                  <p class="text-slate-600 mt-1">
+                    Developed unit test cases using JUnit and Mockito.
+                    Implemented Global and Local Exception Handling.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative" data-aos="fade-left">
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-3xl transform rotate-3 z-0"
+            ></div>
+            <div
+              class="relative bg-white p-8 rounded-3xl shadow-xl z-10 border border-slate-100"
+            >
+              <h3 class="text-xl font-bold text-brand-dark mb-4">Core Focus</h3>
+              <div class="flex flex-wrap gap-3">
+                <span
+                  class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-100"
+                  >Backend Development</span
+                >
+                <span
+                  class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-100"
+                  >REST APIs</span
+                >
+                <span
+                  class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-100"
+                  >Microservices</span
+                >
+                <span
+                  class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-100"
+                  >Exception Handling</span
+                >
+                <span
+                  class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-100"
+                  >Clean Code</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900" data-aos="fade-up">
+            Featured Projects
+          </h2>
+          <div class="w-16 h-1 bg-brand-blue mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
+            data-aos="fade-up"
+          >
+            <div class="absolute top-0 left-0 w-full h-2 bg-brand-blue"></div>
+            <div class="p-8">
+              <div class="flex justify-between items-start mb-4">
+                <h3
+                  class="text-2xl font-bold text-slate-800 group-hover:text-brand-blue transition-colors"
+                >
+                  Spring Security System
+                </h3>
+                <span
+                  class="text-xs font-bold text-slate-400 border border-slate-200 px-2 py-1 rounded uppercase tracking-wide"
+                  >Jan 2026</span
+                >
+              </div>
+              <p class="text-slate-600 mb-6 line-clamp-3">
+                Developed a secure Login and Registration system using Spring
+                Boot. Implemented BCrypt for password encryption and designed
+                RESTful APIs for user management with Data JPA persistence.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-100 text-blue-800"
+                  >Spring Boot</span
+                >
+                <span
+                  class="text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-100 text-blue-800"
+                  >Security</span
+                >
+                <span
+                  class="text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-100 text-blue-800"
+                  >MySQL</span
+                >
+              </div>
+              <a
+                href="https://github.com/Shamsundar04/Spring-Security-Login-Registration"
+                target="_blank"
+                class="inline-flex items-center text-brand-blue font-semibold hover:underline"
+              >
+                View Code <i class="fab fa-github ml-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="absolute top-0 left-0 w-full h-2 bg-brand-dark"></div>
+            <div class="p-8">
+              <div class="flex justify-between items-start mb-4">
+                <h3
+                  class="text-2xl font-bold text-slate-800 group-hover:text-brand-dark transition-colors"
+                >
+                  Banking System
+                </h3>
+                <span
+                  class="text-xs font-bold text-slate-400 border border-slate-200 px-2 py-1 rounded uppercase tracking-wide"
+                  >Dec 2025</span
+                >
+              </div>
+              <p class="text-slate-600 mb-6 line-clamp-3">
+                Designed a modular banking management system featuring robust
+                authentication, secure transactions, data encapsulation, and
+                custom exception handling with file-based persistence.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-8">
+                <span
+                  class="text-xs font-semibold px-2.5 py-0.5 rounded bg-green-100 text-green-800"
+                  >Java</span
+                >
+                <span
+                  class="text-xs font-semibold px-2.5 py-0.5 rounded bg-green-100 text-green-800"
+                  >OOPs</span
+                >
+                <span
+                  class="text-xs font-semibold px-2.5 py-0.5 rounded bg-green-100 text-green-800"
+                  >File I/O</span
+                >
+              </div>
+              <a
+                href="https://github.com/Shamsundar04/Banking-Management-System.git"
+                target="_blank"
+                class="inline-flex items-center text-brand-dark font-semibold hover:underline"
+              >
+                View Code <i class="fab fa-github ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Achievements -->
+    <section id="education" class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Education Column -->
+          <div data-aos="fade-right">
+            <h3
+              class="text-2xl font-bold text-slate-900 mb-8 flex items-center"
+            >
+              <i class="fas fa-graduation-cap mr-3 text-brand-blue"></i>
+              Education
+            </h3>
+            <div class="border-l-2 border-slate-200 ml-3 space-y-10">
+              <div class="relative pl-8">
+                <div
+                  class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-brand-blue border-4 border-white shadow"
+                ></div>
+                <h4 class="text-lg font-bold text-slate-800">
+                  Master of Computer Application (MCA)
+                </h4>
+                <p class="text-brand-blue font-medium mb-1">
+                  University Dept of Management Science
+                </p>
+                <p class="text-slate-500 text-sm">
+                  Expected June 2026 | Aurangabad, MH
+                </p>
+              </div>
+              <div class="relative pl-8">
+                <div
+                  class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow"
+                ></div>
+                <h4 class="text-lg font-bold text-slate-800">
+                  Bachelor of Computer Application (BCA)
+                </h4>
+                <p class="text-brand-blue font-medium mb-1">
+                  University Dept of Management Science
+                </p>
+                <p class="text-slate-500 text-sm">June 2025 | Score: 76.60%</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements Column -->
+          <div data-aos="fade-left">
+            <h3
+              class="text-2xl font-bold text-slate-900 mb-8 flex items-center"
+            >
+              <i class="fas fa-award mr-3 text-brand-blue"></i> Certifications &
+              DSA
+            </h3>
+            <div class="space-y-4">
+              <a
+                href="https://www.geeksforgeeks.org/user/shamschapar8s/"
+                target="_blank"
+                class="block bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 flex items-center justify-between group"
+              >
+                <div class="flex items-center">
+                  <i
+                    class="fas fa-code text-green-600 text-xl mr-4 bg-green-50 p-3 rounded-lg"
+                  ></i>
+                  <div>
+                    <h5 class="font-bold text-slate-800">
+                      Data Structures & Algorithms
+                    </h5>
+                    <p class="text-sm text-slate-500">
+                      Active solver on GeeksForGeeks
+                    </p>
+                  </div>
+                </div>
+                <i
+                  class="fas fa-external-link-alt text-slate-300 group-hover:text-brand-blue"
+                ></i>
+              </a>
+
+              <a
+                href="https://certx.in/certificate/a3ae0c0d-1f62-4e3f-bede-17ff37c364a7330942"
+                target="_blank"
+                class="block bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 flex items-center justify-between group"
+              >
+                <div class="flex items-center">
+                  <i
+                    class="fas fa-database text-blue-600 text-xl mr-4 bg-blue-50 p-3 rounded-lg"
+                  ></i>
+                  <div>
+                    <h5 class="font-bold text-slate-800">
+                      SQL Certification Using AI
+                    </h5>
+                    <p class="text-sm text-slate-500">CertX Verified</p>
+                  </div>
+                </div>
+                <i
+                  class="fas fa-external-link-alt text-slate-300 group-hover:text-brand-blue"
+                ></i>
+              </a>
+
+              <a
+                href="https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd0997314810"
+                target="_blank"
+                class="block bg-white p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100 flex items-center justify-between group"
+              >
+                <div class="flex items-center">
+                  <i
+                    class="fas fa-robot text-purple-600 text-xl mr-4 bg-purple-50 p-3 rounded-lg"
+                  ></i>
+                  <div>
+                    <h5 class="font-bold text-slate-800">
+                      AI Tools Certification
+                    </h5>
+                    <p class="text-sm text-slate-500">CertX Verified</p>
+                  </div>
+                </div>
+                <i
+                  class="fas fa-external-link-alt text-slate-300 group-hover:text-brand-blue"
+                ></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-slate-900 mb-6" data-aos="fade-up">
+          Let's Work Together
+        </h2>
+        <p class="text-slate-600 mb-10" data-aos="fade-up" data-aos-delay="100">
+          I am currently open to new opportunities. Whether you have a question
+          or just want to say hi, I'll try my best to get back to you!
+        </p>
+
+        <div
+          class="bg-slate-50 p-8 rounded-2xl shadow-inner mb-10"
+          data-aos="zoom-in"
+        >
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12"
+          >
+            <a
+              href="tel:+918767465806"
+              class="flex items-center text-slate-700 hover:text-brand-blue transition-colors"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-brand-blue mr-3"
+              >
+                <i class="fas fa-phone"></i>
+              </div>
+              <span class="font-medium">+91 8767465806</span>
+            </a>
+            <a
+              href="mailto:chapakanadesham@gmail.com"
+              class="flex items-center text-slate-700 hover:text-brand-blue transition-colors"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-brand-blue mr-3"
+              >
+                <i class="fas fa-envelope"></i>
+              </div>
+              <span class="font-medium">chapakanadesham@gmail.com</span>
+            </a>
+            <div class="flex items-center text-slate-700">
+              <div
+                class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-brand-blue mr-3"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <span class="font-medium">Hyderabad, India</span>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="mailto:chapakanadesham@gmail.com"
+          class="inline-block px-10 py-4 bg-brand-blue text-white font-bold rounded-full shadow-lg hover:bg-brand-dark hover:shadow-xl transition-all transform hover:-translate-y-1"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Say Hello <i class="fas fa-paper-plane ml-2"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-8">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="mb-4 md:mb-0">
+          <span class="text-xl font-bold tracking-tighter">SC.</span>
+        </div>
+        <div class="text-slate-400 text-sm">
+          &copy; <span id="year"></span> Shamsundar Chapakanade. All rights
+          reserved.
+        </div>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a
+            href="https://github.com/Shamsundar04"
+            class="text-slate-400 hover:text-white transition-colors"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/shamsundar-chapakanade-727737354/"
+            class="text-slate-400 hover:text-white transition-colors"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize Animations
+      AOS.init({
+        once: true,
+        offset: 100,
+        duration: 800,
+        easing: "ease-out-cubic",
+      });
+
+      // Set current year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Mobile Menu Toggle
+      const btn = document.getElementById("mobile-menu-btn");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navbar");
+        if (window.scrollY > 20) {
+          nav.classList.add("shadow-md");
+          // Ensure text is legible against any content when scrolled
+          nav.classList.add("bg-white/90");
+        } else {
+          nav.classList.remove("shadow-md");
+          nav.classList.remove("bg-white/90");
+          // Allow the backdrop blur to do the work at top of page
+        }
+      });
+    </script>
+  </body>
+</html>
